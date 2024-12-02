@@ -178,15 +178,16 @@ h2 {
 }
 
 .project-image {
-    max-width: 300px; /* Limit image width */
-    width: 100%; /* Ensure responsiveness */
-    height: auto; /* Maintain aspect ratio */
+    max-width: 350px; /* Increase the width limit */
+    max-height: 300px; /* Set a higher maximum height */
+    width: auto; /* Maintain aspect ratio by using auto */
+    height: auto; /* Ensure the height adjusts proportionally */
     border: 2px solid #ccc; /* Add a light border */
     border-radius: 5px; /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     margin: 10px; /* Add spacing around the image */
+    object-fit: contain; /* Ensures the entire image is visible without cropping */
 }
-
 /* Footer */
 footer {
     background: #333;
