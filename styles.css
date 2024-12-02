@@ -144,6 +144,21 @@ h2 {
     background-color: #005f99;
 }
 
+/* Key Features Section */
+.centered-text ul {
+    list-style-type: disc; /* Ensure consistent bullet style */
+    list-style-position: inside; /* Keeps bullets inside the content box */
+    padding-left: 20px; /* Adds consistent left padding for text alignment */
+    margin: 20px auto;
+    max-width: 800px; /* Keeps the text centered and aligned */
+    line-height: 1.6; /* Ensures proper spacing between lines */
+}
+
+.centered-text li {
+    margin-bottom: 10px; /* Adds space between bullet points */
+    text-align: left; /* Ensures alignment for multi-line text */
+}
+
 /* About Section */
 .about-content {
     display: flex;
