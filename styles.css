@@ -170,21 +170,18 @@ h2 {
 .gallery {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Centers the images horizontally */
-    align-items: center; /* Ensures vertical alignment consistency */
-    gap: 20px; /* Adds spacing between images */
+    justify-content: center;
+    gap: 20px;
     padding: 20px;
-    margin: 0 auto; /* Centers the entire gallery container */
 }
 
-.project-image {
-    max-width: 300px; /* Limit image width */
-    width: 100%; /* Ensure responsiveness */
-    height: auto; /* Maintain aspect ratio */
-    border: 2px solid #ccc; /* Add a light border */
-    border-radius: 5px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    margin: 10px; /* Add spacing around the image */
+.gallery-image {
+    width: 200px; /* Ensure uniform width */
+    height: 300px; /* Ensure uniform height */
+    object-fit: cover; /* Crop and scale images to fit */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
 }
 
 /* Footer */
