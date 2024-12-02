@@ -144,30 +144,30 @@ h2 {
     background-color: #005f99;
 }
 
-/* Key Features Section */
-.centered-text-key ul {
-    list-style-type: none; /* Remove default bullets */
-    padding: 0; /* Remove padding for proper centering */
-    margin: 20px auto; /* Center the entire list */
-    max-width: 800px; /* Constrain the list width */
-    text-align: center; /* Center-align all text */
+/* Key Features Section with Flexbox */
+.key-features-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Horizontally centers the items */
+    justify-content: center; /* Vertically centers the items if needed */
+    padding: 20px;
+}
+
+.centered-text-key {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+    max-width: 800px;
+    width: 100%;
 }
 
 .centered-text-key li {
-    position: relative; /* Enable bullet positioning */
-    margin-bottom: 15px; /* Add spacing between bullet points */
-    padding-left: 25px; /* Create space for custom bullets */
-    text-align: center; /* Center-align text relative to the page */
+    position: relative;
+    margin-bottom: 15px;
+    padding-left: 25px;
+    text-align: left;
 }
 
-.centered-text-key li::before {
-    content: "•"; /* Add custom bullet */
-    position: absolute; /* Position bullet relative to text */
-    left: 0; /* Align bullet to the left of the text block */
-    color: #333; /* Set bullet color */
-    font-size: 1.2em; /* Slightly enlarge the bullet */
-    top: 0; /* Vertically align with the text */
-}
 
 /* About Section */
 .about-content {
