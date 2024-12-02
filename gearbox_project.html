@@ -6,29 +6,32 @@
     <title>3D Printed Gearbox - Jack Zhang</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <header>
-        <h1>3D Printed Gearbox</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="projects.html">Projects</a>
-        </nav>
-    </header>
-    <main>
+<main>
         <section>
             <h2 class="centered-title">Project Overview</h2>
             <div class="centered">
-                <img src="gearbox_render.png" alt="Initial CAD of Gearbox" class="project-image">
+                <img src="gearbox_initial_cad.png" alt="Initial CAD of Gearbox" class="project-image">
             </div>
-            <p class="centered-text">This project involved designing and testing a 3D-printed gearbox for mechanical performance evaluation. The process included iterative prototyping, material testing, and final optimization to ensure durability and functionality. The gearbox design focused on efficiency and reliability, using advanced CAD modeling and 3D printing technologies to create a lightweight, cost-effective solution suitable for testing and small-scale applications.</p>
+            <p class="centered-text">The 3D Printed Gearbox project involved designing, prototyping, and optimizing a gearbox for mechanical performance using additive manufacturing. This project prioritized simplicity, minimization of slop, and effective torque transmission. The final design used helical gears in a 3:1 ratio, offering a balance between efficiency and manufacturability while adhering to the constraints of 3D printing technologies available at MyFab.</p>
         </section>
         <section>
             <h2 class="centered-title">Key Features</h2>
-            <ul class="centered-text">
-                <li><strong>Iterative Design Process:</strong> Progressed from initial CAD modeling to prototype testing and final design optimization.</li>
-                <li><strong>3D Printing for Efficiency:</strong> Utilized lightweight, cost-effective 3D-printed materials for gears and housing.</li>
-                <li><strong>Functional Testing:</strong> Evaluated the gearbox for durability and performance under varying load conditions.</li>
-                <li><strong>Material Selection:</strong> Focused on high-strength PLA and PETG for improved gear durability and wear resistance.</li>
+            <ul class="centered-text-key">
+                <li><strong>Black Box Design Approach:</strong> Conceptualized using a Black Box method, transforming rotational input into rotational output with a 90-degree turn and 3:1 reduction.</li>
+                <li><strong>Helical Gear Design:</strong> Selected for ease of manufacturability and reduced slop compared to bevel or hypoid gears. Utilized gears with 30 and 10 teeth for a 3:1 ratio.</li>
+                <li><strong>Support-Free Additive Manufacturing:</strong> Designed all parts to be 3D printed without the need for support structures, ensuring optimal print quality and reduced material usage.</li>
+                <li><strong>Single-Piece Frame:</strong> Enhanced simplicity and rigidity with a dual V-shaped frame design that reduces print time and improves assembly.</li>
+                <li><strong>Custom Shaft Design:</strong> Two-part mirrored shaft with cylindrical contact points and square press-fit profiles minimizes slop while securing the gears.</li>
+                <li><strong>Minimized Backlash:</strong> Focused on a two-gear solution to reduce slop and simplify the system, valuing simplicity over maximum torque transmission.</li>
+            </ul>
+        </section>
+        <section>
+            <h2 class="centered-title">Design Evolution</h2>
+            <p class="centered-text">The gearbox design underwent three iterations to optimize for simplicity, printability, and performance:</p>
+            <ul class="centered-text-key">
+                <li><strong>Initial Design (Mk0):</strong> Proof of concept using helical gears and a dovetail housing. Inefficient use of space and high print times demonstrated the need for improvement.</li>
+                <li><strong>Intermediate Design (Mk1):</strong> Introduced a single-piece frame and dual V-shaped design for support-free printing and improved rigidity.</li>
+                <li><strong>Final Design (Mk2):</strong> Implemented a two-part mirrored shaft, refined frame geometry, and improved assembly for optimal performance and manufacturability.</li>
             </ul>
         </section>
         <section>
