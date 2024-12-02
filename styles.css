@@ -166,6 +166,22 @@ h2 {
     margin: 20px;
 }
 
+/* Gallery Section */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.project-thumbnail {
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 /* Footer */
 footer {
     background: #333;
@@ -174,7 +190,10 @@ footer {
     padding: 1rem 0;
     margin-top: 2rem;
     font-size: 0.9rem;
+    width: 100%; /* Ensures footer spans full width */
+    box-sizing: border-box; /* Includes padding and borders in width calculation */
 }
+
 
 footer a.contact-link {
     color: #ccc; /* Neutral color */
