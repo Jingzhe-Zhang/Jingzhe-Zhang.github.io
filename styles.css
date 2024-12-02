@@ -169,17 +169,19 @@ h2 {
 /* Gallery Section */
 .gallery {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 20px;
     padding: 20px;
 }
 
-.project-thumbnail {
+.gallery-image {
     max-width: 300px;
-    height: auto;
+    max-height: 300px;
+    object-fit: cover; /* Ensures consistent cropping */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
 }
 
 /* Footer */
