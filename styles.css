@@ -1,3 +1,4 @@
+/* General Styling */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -7,11 +8,12 @@ body {
     background-color: #f9f9f9;
 }
 
+/* Header */
 header {
     background: #333;
     color: #fff;
     text-align: center;
-    padding: 1rem 0;
+    padding: 1.5rem 0;
 }
 
 header h1 {
@@ -21,6 +23,7 @@ header h1 {
 
 header p {
     margin: 0.5rem 0;
+    font-size: 1.2rem;
 }
 
 header nav {
@@ -31,69 +34,90 @@ header nav a {
     color: #fff;
     text-decoration: none;
     margin: 0 15px;
-    font-size: 1.1rem;
+    font-size: 1rem;
+    transition: color 0.3s ease;
 }
 
+header nav a:hover {
+    color: #007acc;
+}
+
+/* Main Content */
 main {
     padding: 2rem;
 }
 
-section {
-    margin-bottom: 2rem;
-}
-
-h2 {
-    text-align: center;
-    margin-bottom: 1rem;
-    font-size: 2rem;
-}
-
+/* About Section */
 .about-content {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    flex-wrap: wrap;
     max-width: 800px;
     margin: 0 auto;
+    text-align: center;
 }
 
 .profile-photo {
     width: 150px;
     border-radius: 50%;
-    margin-right: 20px;
+    margin: 20px;
 }
 
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
+.about-content p {
+    max-width: 500px;
+    margin: 20px;
 }
 
-.skill h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-}
-
+/* Gallery Section */
 .gallery {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    max-width: 900px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.project-image {
+    display: block;
     margin: 0 auto;
+    max-width: 90%; /* Ensure uniform sizing */
+    height: auto;
+    border: 2px solid #ccc; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
-.gallery-image {
-    width: 100%;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
+/* Footer */
 footer {
     background: #333;
     color: #fff;
     text-align: center;
     padding: 1rem 0;
     margin-top: 2rem;
+    font-size: 0.9rem;
+}
+
+footer a.contact-link {
+    color: #ccc; /* Neutral color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+footer a.contact-link:hover {
+    color: #fff; /* Highlight on hover */
+    text-decoration: underline;
+}
+
+/* Links */
+a {
+    color: #444; /* Neutral link color */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #007acc; /* Subtle blue on hover */
+    text-decoration: underline;
 }
