@@ -47,6 +47,38 @@ main {
     padding: 2rem;
 }
 
+h2 {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.centered-text {
+    text-align: center;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.centered {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.download-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007acc;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.download-button:hover {
+    background-color: #005f99;
+}
+
+
 /* About Section */
 .about-content {
     display: flex;
@@ -69,7 +101,6 @@ main {
     margin: 20px;
 }
 
-/* Gallery Section */
 /* Gallery Section */
 .gallery {
     display: flex;
