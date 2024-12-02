@@ -145,18 +145,21 @@ h2 {
 }
 
 /* Key Features Section */
-.centered-text-key ul {
-    list-style-type: disc; /* Ensure consistent bullet style */
-    list-style-position: inside; /* Keeps bullets inside the content box */
-    padding-left: 20px; /* Adds consistent left padding for text alignment */
-    margin: 20px auto;
-    max-width: 800px; /* Keeps the text centered and aligned */
-    line-height: 1.6; /* Ensures proper spacing between lines */
+.centered-text ul {
+    list-style-type: disc; /* Use standard bullet style */
+    list-style-position: outside; /* Keep bullets outside for neat alignment */
+    padding-left: 0; /* Remove extra padding */
+    margin: 20px auto; /* Center the list on the page */
+    max-width: 800px; /* Limit the width of the text block */
+    text-align: center; /* Center-align the entire list */
+    line-height: 1.6; /* Ensure proper spacing between lines */
 }
 
-.centered-text-key li {
-    margin-bottom: 10px; /* Adds space between bullet points */
-    text-align: left; /* Ensures alignment for multi-line text */
+.centered-text li {
+    margin-bottom: 10px; /* Add spacing between each bullet point */
+    display: inline-block; /* Make each item a block to center it properly */
+    text-align: left; /* Ensure multi-line text aligns with the bullet */
+    width: 100%; /* Maintain full width for the list item */
 }
 
 /* About Section */
