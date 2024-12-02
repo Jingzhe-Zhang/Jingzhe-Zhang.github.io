@@ -144,23 +144,29 @@ h2 {
     background-color: #005f99;
 }
 
+/* Key Features Section */
 .centered-text-key ul {
-    list-style-type: disc; /* Use standard bullet style */
-    list-style-position: outside; /* Keep bullets outside for neat alignment */
-    padding-left: 0; /* Remove extra padding */
-    margin: 20px auto; /* Center the list on the page */
-    max-width: 800px; /* Limit the width of the text block */
-    display: flex; /* Use flexbox for proper centering */
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center-align the list items */
-    text-align: center; /* Center-align text within list items */
-    line-height: 1.6; /* Ensure proper spacing between lines */
+    list-style-type: none; /* Remove default bullets */
+    padding: 0; /* Remove padding for proper centering */
+    margin: 20px auto; /* Center the entire list */
+    max-width: 800px; /* Constrain the list width */
+    text-align: center; /* Center-align all text */
 }
 
 .centered-text-key li {
-    width: 100%; /* Ensure full width for proper alignment */
-    text-align: left; /* Align text relative to the bullet point */
-    margin-bottom: 10px; /* Add spacing between each bullet point */
+    position: relative; /* Enable bullet positioning */
+    margin-bottom: 15px; /* Add spacing between bullet points */
+    padding-left: 25px; /* Create space for custom bullets */
+    text-align: center; /* Center-align text relative to the page */
+}
+
+.centered-text-key li::before {
+    content: "•"; /* Add custom bullet */
+    position: absolute; /* Position bullet relative to text */
+    left: 0; /* Align bullet to the left of the text block */
+    color: #333; /* Set bullet color */
+    font-size: 1.2em; /* Slightly enlarge the bullet */
+    top: 0; /* Vertically align with the text */
 }
 
 /* About Section */
