@@ -169,16 +169,16 @@ h2 {
 /* Gallery Section */
 .gallery {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
     padding: 20px;
 }
 
 .gallery-image {
-    max-width: 300px;
-    max-height: 300px;
-    object-fit: cover; /* Ensures consistent cropping */
+    width: 300px; /* Ensure uniform width */
+    height: 200px; /* Ensure uniform height */
+    object-fit: cover; /* Crop and scale images to fit */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: 1px solid #ccc;
