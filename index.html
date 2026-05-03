@@ -107,8 +107,6 @@
   .hero-crosshair.bl{bottom:24px;left:24px}
   .hero-crosshair.br{bottom:24px;right:24px}
 
-  .hero-meta{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:56px;position:relative;z-index:2}
-  .hero-meta .right{text-align:right}
   .hero h1{
     font-family:'Hanken Grotesk',sans-serif;
     font-weight:500;
@@ -132,9 +130,122 @@
   }
   .hero-sub p{max-width:54ch;font-size:1.1rem;line-height:1.6}
   .hero-sub p strong{font-weight:600;color:var(--ink)}
+
+  /* === Project Timeline (between hero and deep-dives) === */
+  .project-timeline{
+    padding:80px 0 96px;
+    background:var(--paper);
+    position:relative;
+  }
+  .timeline-head{
+    display:grid;grid-template-columns:160px 1fr;gap:40px;
+    margin-bottom:72px;align-items:end;
+  }
+  .timeline-head h2{
+    font-family:'Hanken Grotesk',sans-serif;font-weight:500;
+    font-size:clamp(28px,4vw,44px);letter-spacing:-.02em;line-height:1;
+  }
+  .timeline-head h2 .it{
+    font-family:'Newsreader',serif;font-style:italic;
+    font-variation-settings:"opsz" 60;font-weight:380;
+  }
+
+  /* Timeline row: image column + text column, alternating */
+  .timeline-row{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:64px;
+    padding:48px 0;
+    align-items:center;
+    border-top:1px solid var(--rule);
+  }
+  .timeline-row:last-child{border-bottom:1px solid var(--rule)}
+
+  /* Even rows: text on the LEFT, image on the RIGHT */
+  .timeline-row.alt .timeline-img-col{order:2}
+  .timeline-row.alt .timeline-text-col{order:1;text-align:right}
+  .timeline-row.alt .timeline-text-col .timeline-meta-row{justify-content:flex-end}
+
+  /* Image column */
+  .timeline-img-col{
+    display:flex;align-items:center;justify-content:center;
+  }
+  .timeline-img-wrap{
+    display:inline-block;
+    background:#fff;
+    border:1px solid var(--rule);
+    padding:6px;
+    line-height:0;
+    max-width:100%;
+  }
+  .timeline-img-wrap img{
+    display:block;
+    max-width:100%;
+    max-height:520px;
+    width:auto;
+    height:auto;
+    object-fit:contain;
+  }
+
+  /* Text column */
+  .timeline-text-col{
+    display:flex;flex-direction:column;gap:14px;
+  }
+  .timeline-num{
+    font-family:'JetBrains Mono',monospace;
+    font-size:.78rem;letter-spacing:.14em;color:var(--accent);
+    font-weight:500;
+  }
+  .timeline-title{
+    font-family:'Hanken Grotesk',sans-serif;font-weight:500;
+    font-size:clamp(24px,3vw,36px);
+    line-height:1.05;letter-spacing:-.02em;color:var(--ink);
+    max-width:18ch;
+  }
+  .timeline-row.alt .timeline-title{margin-left:auto}
+  .timeline-summary{
+    font-size:1rem;line-height:1.55;color:var(--ink-2);
+    max-width:42ch;
+  }
+  .timeline-row.alt .timeline-summary{margin-left:auto}
+  .timeline-meta-row{
+    display:flex;gap:14px;flex-wrap:wrap;align-items:baseline;
+    margin-top:8px;
+  }
+  .timeline-tags{
+    font-family:'Geist',sans-serif;font-size:.85rem;color:var(--ink-2);
+  }
+  .timeline-year{
+    font-family:'JetBrains Mono',monospace;font-size:.7rem;
+    color:var(--muted);letter-spacing:.06em;text-transform:uppercase;
+  }
+  .timeline-link{
+    display:inline-flex;align-items:center;gap:8px;
+    margin-top:8px;
+    font-family:'Hanken Grotesk',sans-serif;font-weight:500;
+    font-size:.95rem;color:var(--ink);
+    border-bottom:1px solid var(--ink);
+    padding-bottom:4px;width:fit-content;
+    transition:color .25s ease,border-color .25s ease,gap .25s ease;
+  }
+  .timeline-link:hover{
+    color:var(--accent);border-color:var(--accent);gap:14px;
+  }
+  .timeline-link .arr{font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--accent)}
+
+  @media (max-width:880px){
+    .timeline-head{grid-template-columns:1fr;gap:12px;margin-bottom:48px}
+    .timeline-row{
+      grid-template-columns:1fr;gap:24px;padding:36px 0;
+    }
+    /* Mobile: image always first, text always left-aligned */
+    .timeline-row.alt .timeline-img-col{order:1}
+    .timeline-row.alt .timeline-text-col{order:2;text-align:left}
+    .timeline-row.alt .timeline-text-col .timeline-meta-row{justify-content:flex-start}
+    .timeline-row.alt .timeline-title,
+    .timeline-row.alt .timeline-summary{margin-left:0}
+    .timeline-img-wrap img{max-height:420px}
+  }
   @media (max-width:780px){
-    .hero-meta{grid-template-columns:1fr}
-    .hero-meta .right{text-align:left}
     .hero-crosshair{display:none}
   }
 
@@ -171,7 +282,7 @@
   .section-divider::after{right:0}
 
   /* === Project === */
-  .project{padding:88px 0;position:relative}
+  .project{padding:88px 0;position:relative;scroll-margin-top:72px}
   .project:first-of-type{padding-top:0}
 
   /* End-of-project marker — appears at the bottom of every project */
@@ -507,41 +618,147 @@
   <div class="hero-crosshair br"></div>
 
   <div class="wrap">
-    <div class="hero-meta">
-      <div>
-        <div class="mono">§ Portfolio / 2023—2026</div>
-        <div class="mono" style="margin-top:6px">Rev. 03 · Updated May 2026</div>
-      </div>
-      <div class="right">
-        <div class="mono">Toronto, ON</div>
-        <div class="mono" style="margin-top:6px">Available — 12-mo PEY · Sept 2026</div>
-      </div>
-    </div>
-
     <h1>
-      Mechanical<br>
-      <span class="it">engineering</span><br>
-      with a bias for <span class="acc">building.</span>
+      Hey — I'm <span class="acc">Jack.</span><br>
+      A mech eng student<br>at U of T.
     </h1>
 
     <div class="hero-sub">
       <p>
-        Third-year mech eng at the University of Toronto, specializing in <strong>mechatronics</strong> and <strong>solid mechanics</strong>. Most of what I do starts as a CAD file and ends as something physical. The interesting part is everything in between.
+        I specialize in <strong>mechatronics</strong>, <strong>FEA</strong>, and <strong>design for manufacturing</strong>. Currently looking for a 12-month PEY co-op starting September 2026.
       </p>
     </div>
   </div>
 </section>
+<section class="project-timeline" aria-label="Project timeline">
+  <div class="wrap">
+    <div class="timeline-head">
+      <div class="mono-ink">§ 01 / Selected Work</div>
+      <h2>Six projects, <span class="it">in detail.</span></h2>
+    </div>
+
+    <!-- 01 — Chamber Heater (image left) -->
+    <div class="timeline-row">
+      <div class="timeline-img-col">
+        <a href="#p01" class="timeline-img-wrap" aria-label="Project 01 detail">
+          <img src="images/printer-hero.jpg" alt="Small form factor 4-axis high-temp 3D printer">
+        </a>
+      </div>
+      <div class="timeline-text-col">
+        <div class="timeline-num">PROJECT 01 · 2024—25</div>
+        <h3 class="timeline-title">Small form factor, 4-axis, high-temp 3D printer.</h3>
+        <p class="timeline-summary">A custom 80&nbsp;°C-capable enclosure that prints polycarbonate and other engineering thermoplastics reliably — the result of integrating insulation, forced convection, and an active PTC heater.</p>
+        <div class="timeline-meta-row">
+          <span class="timeline-tags">Thermal systems · Mechatronics</span>
+        </div>
+        <a href="#p01" class="timeline-link">Read full project <span class="arr">↓</span></a>
+      </div>
+    </div>
+
+    <!-- 02 — Headphones (image right, text left) -->
+    <div class="timeline-row alt">
+      <div class="timeline-img-col">
+        <a href="#p02" class="timeline-img-wrap" aria-label="Project 02 detail">
+          <img src="images/headphone-final.jpg" alt="Open-back headphones with walnut wood cups">
+        </a>
+      </div>
+      <div class="timeline-text-col">
+        <div class="timeline-num">PROJECT 02 · 2024—25</div>
+        <h3 class="timeline-title">Open-back headphones, tuned by graph.</h3>
+        <p class="timeline-summary">Walnut-cup, open-back headphones with a 3D-printed acoustic baffle. Three iterations of measure-and-adjust on a H.E.A.R.S rig converged the SPL response toward a Harman-style target — no electronic EQ.</p>
+        <div class="timeline-meta-row">
+          <span class="timeline-tags">Acoustic design · CAD/print loop</span>
+        </div>
+        <a href="#p02" class="timeline-link">Read full project <span class="arr">↓</span></a>
+      </div>
+    </div>
+
+    <!-- 03 — CNC (image left) -->
+    <div class="timeline-row">
+      <div class="timeline-img-col">
+        <a href="#p03" class="timeline-img-wrap" aria-label="Project 03 detail">
+          <img src="images/cnc-render.jpg" alt="4 by 4 foot hobbyist CNC router">
+        </a>
+      </div>
+      <div class="timeline-text-col">
+        <div class="timeline-num">PROJECT 03 · 2024</div>
+        <h3 class="timeline-title">A 4×4 ft hobbyist CNC router that cuts aluminum.</h3>
+        <p class="timeline-summary">Team capstone designed to a CAD&nbsp;$4k budget. I owned the structural analysis — derived a 280&nbsp;N worst-case cutting force, validated the gantry to a 12.5× safety factor in ANSYS.</p>
+        <div class="timeline-meta-row">
+          <span class="timeline-tags">FEA · DFM · Team capstone</span>
+        </div>
+        <a href="#p03" class="timeline-link">Read full project <span class="arr">↓</span></a>
+      </div>
+    </div>
+
+    <!-- 04 — UTAT (image right) — using CAD render not photo -->
+    <div class="timeline-row alt">
+      <div class="timeline-img-col">
+        <a href="#p04" class="timeline-img-wrap" aria-label="Project 04 detail">
+          <img src="images/utat-cad.jpg" alt="Non-structural aero body CAD render">
+        </a>
+      </div>
+      <div class="timeline-text-col">
+        <div class="timeline-num">PROJECT 04 · 2023—NOW</div>
+        <h3 class="timeline-title">Non-structural aero body for a liquid-propellant rocket.</h3>
+        <p class="timeline-summary">Composite outer airframe for UTAT's liquid-propellant rocket. ANSYS-driven topology cut 15% mass while preserving stiffness; the team's pivot to negative-mould fabrication halved panel production time.</p>
+        <div class="timeline-meta-row">
+          <span class="timeline-tags">Aerospace · Composites · ANSYS</span>
+        </div>
+        <a href="#p04" class="timeline-link">Read full project <span class="arr">↓</span></a>
+      </div>
+    </div>
+
+    <!-- 05 — Pen (image left) -->
+    <div class="timeline-row">
+      <div class="timeline-img-col">
+        <a href="#p05" class="timeline-img-wrap" aria-label="Project 05 detail">
+          <img src="images/fountainpen-cad.jpg" alt="Piston-filler fountain pen CAD">
+        </a>
+      </div>
+      <div class="timeline-text-col">
+        <div class="timeline-num">PROJECT 05 · 2025</div>
+        <h3 class="timeline-title">A piston-filler fountain pen, designed for the lathe.</h3>
+        <p class="timeline-summary">An exercise in tolerance stacking and operation order. Every dimension carries through to the setup sheet — which datum gets cut first, where the precision has to live.</p>
+        <div class="timeline-meta-row">
+          <span class="timeline-tags">Precision turning · Tolerance design</span>
+        </div>
+        <a href="#p05" class="timeline-link">Read full project <span class="arr">↓</span></a>
+      </div>
+    </div>
+
+    <!-- 06 — Slider (image right) -->
+    <div class="timeline-row alt">
+      <div class="timeline-img-col">
+        <a href="#p06" class="timeline-img-wrap" aria-label="Project 06 detail">
+          <img src="images/macro-unotch.jpg" alt="Macro photograph of a U-notch fatigue specimen">
+        </a>
+      </div>
+      <div class="timeline-text-col">
+        <div class="timeline-num">PROJECT 06 · 2024—NOW</div>
+        <h3 class="timeline-title">Programmable macro camera slider.</h3>
+        <p class="timeline-summary">Motorized linear stage for macro photography. Raspberry&nbsp;Pi controller, custom Python software for automated focus stacks. Sub-mm positioning, zero step loss across 100+ test cycles.</p>
+        <div class="timeline-meta-row">
+          <span class="timeline-tags">Mechatronics · Python · RPi</span>
+        </div>
+        <a href="#p06" class="timeline-link">Read full project <span class="arr">↓</span></a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="section-divider">
 
 <main class="wrap">
 
   <section class="section" id="work">
-    <div class="section-head">
-      <div class="mono-ink">§ 01 / Selected Work</div>
-      <h2>Things I've <span class="it">designed,</span> built, and broken.</h2>
+    <div class="section-head" style="margin-bottom:72px">
+      <div class="mono-ink">§ 02 / Deep Dives</div>
+      <h2>The full <span class="it">case studies.</span></h2>
     </div>
 
-    <!-- 01 CHAMBER HEATER -->
-    <article class="project">
+    <article class="project" id="p01">
       <div class="project-meta">
         <div class="pnum">01</div>
         <div class="meta-cell"><div class="mono">Year</div><div class="v">2024—25</div></div>
@@ -550,7 +767,7 @@
         <div class="meta-cell"><div class="mono">Status</div><div class="v status-active">Operational</div></div>
       </div>
 
-      <h3 class="project-title">A 4-axis enclosed 3D printer that prints <span class="it">polycarbonate</span> reliably.</h3>
+      <h3 class="project-title">A small form factor 4-axis printer for <span class="it">polycarbonate</span> and engineering thermoplastics.</h3>
 
       <div class="project-body">
         <div>
@@ -664,7 +881,7 @@
     </article>
 
     <!-- 02 HEADPHONES -->
-    <article class="project">
+    <article class="project" id="p02">
       <div class="project-meta">
         <div class="pnum">02</div>
         <div class="meta-cell"><div class="mono">Year</div><div class="v">2024—25</div></div>
@@ -818,7 +1035,7 @@
     </article>
 
     <!-- 03 CNC -->
-    <article class="project">
+    <article class="project" id="p03">
       <div class="project-meta">
         <div class="pnum">03</div>
         <div class="meta-cell"><div class="mono">Year</div><div class="v">2024</div></div>
@@ -897,7 +1114,7 @@
     </article>
 
     <!-- 04 UTAT -->
-    <article class="project">
+    <article class="project" id="p04">
       <div class="project-meta">
         <div class="pnum">04</div>
         <div class="meta-cell"><div class="mono">Year</div><div class="v">2023—Present</div></div>
@@ -906,7 +1123,7 @@
         <div class="meta-cell"><div class="mono">Status</div><div class="v status-active">Active</div></div>
       </div>
 
-      <h3 class="project-title">Composite airframe panels for a <span class="it">liquid-propellant</span> rocket.</h3>
+      <h3 class="project-title">Non-structural aero body for a <span class="it">liquid-propellant</span> rocket.</h3>
 
       <div class="project-body">
         <div>
@@ -953,7 +1170,7 @@
     </article>
 
     <!-- 05 FOUNTAIN PEN -->
-    <article class="project">
+    <article class="project" id="p05">
       <div class="project-meta">
         <div class="pnum">05</div>
         <div class="meta-cell"><div class="mono">Year</div><div class="v">2025</div></div>
@@ -991,7 +1208,7 @@
     </article>
 
     <!-- 06 MACRO SLIDER -->
-    <article class="project">
+    <article class="project" id="p06">
       <div class="project-meta">
         <div class="pnum">06</div>
         <div class="meta-cell"><div class="mono">Year</div><div class="v">2024—In progress</div></div>
@@ -1035,7 +1252,7 @@
 
   <section class="section" id="experience">
     <div class="section-head">
-      <div class="mono-ink">§ 02 / Experience</div>
+      <div class="mono-ink">§ 03 / Experience</div>
       <h2>Where I've <span class="it">put it</span> into practice.</h2>
     </div>
 
@@ -1080,7 +1297,7 @@
 
   <section class="section" id="skills">
     <div class="section-head">
-      <div class="mono-ink">§ 03 / Skills</div>
+      <div class="mono-ink">§ 04 / Skills</div>
       <h2>What I reach for, <span class="it">in order.</span></h2>
     </div>
 
@@ -1124,7 +1341,7 @@
   <hr class="section-divider">
 
   <section class="contact" id="contact">
-    <div class="mono-ink" style="margin-bottom:24px">§ 04 / Contact</div>
+    <div class="mono-ink" style="margin-bottom:24px">§ 05 / Contact</div>
     <h2>Get <span class="it">in touch.</span></h2>
     <div class="contact-grid">
       <div>
